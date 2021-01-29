@@ -1,0 +1,95 @@
+{
+  "final_space": true,
+  "console_title": false,
+  "console_title_style": "",
+  "console_title_template": "",
+  "blocks": [
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "horizontal_offset": 0,
+      "vertical_offset": 0,
+      "segments": [
+        {
+          "type": "root",
+          "style": "plain",
+          "foreground": "#FFEE58"
+        },
+        // {
+        //   "type": "session",
+        //   "style": "diamond",
+        //   "foreground": "#ffffff",
+        //   "background": "#c386f1",
+        //   "leading_diamond": "\uE0B6",
+        //   "trailing_diamond": "\uE0B0"
+        // },
+        {
+          "type": "path",
+          "style": "powerline",
+          "powerline_symbol": "\uE0B0",
+          "foreground": "#303030",
+          "background": "#91ddff",
+          "properties": {
+            "prefix": " \uE5FF ",
+            "style": "full"
+          }
+        },
+        {
+          "type": "git",
+          "style": "powerline",
+          "powerline_symbol": "\uE0B0",
+          "foreground": "#193549",
+          "background": "#ffeb3b",
+          "properties": {
+            "display_status": true,
+            "display_upstream_icon": true,
+            "display_status_detail": true
+          }
+        },
+        {
+          "type": "python",
+          "style": "powerline",
+          "powerline_symbol": "\uE0B0",
+          "foreground": "#100e23",
+          "background": "#906cff",
+          "properties": {
+            "prefix": " \uE235 "
+          }
+        },
+        {
+          "type": "exit",
+          "style": "powerline",
+          "powerline_symbol": "\uE0B0",
+          "foreground": "#ffffff",
+          "background": "#ff8080",
+          "properties": {
+            "prefix": "\uE20F"
+          }
+        },
+        {
+          "type": "az",
+          "style": "powerline",
+          "powerline_symbol": "\uE0B0",
+          "foreground": "#ffffff",
+          "background": "#0078d4",
+          "properties": {
+            "display_id": false,
+            "display_name": true,
+            "info_separator": " @ ",
+            "prefix": " \uFD03 "
+          }
+        },
+        {
+          "type": "kubectl",
+          "style": "powerline",
+          "powerline_symbol": "\uE0B0",
+          "foreground": "#3371e3",
+          "background": "#ced6e0",
+          "properties": {
+            "prefix": " \uFD31 "
+          }
+        }
+      ]
+    }
+  ]
+}
