@@ -1,0 +1,165 @@
+{
+    "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh3/main/themes/schema.json",
+    "final_space": true,
+    "console_title": true,
+    "console_title_style": "template",
+    "console_title_template": "{{if .Root}}root :: {{end}}{{.Shell}} :: {{.Folder}}",
+    "blocks": [
+      {
+        "type": "prompt",
+        "alignment": "left",
+        "segments": [              
+          {
+            "type": "root",
+            "style": "diamond",
+            "foreground": "#ffff66",
+            "background": "#2f3542",
+            "properties": {
+              "root_icon": "\uF0E7",
+              "postfix": "<#7a7a7a> \ue0b1</>"
+            }
+          },
+          {
+            "type": "path",
+            "style": "diamond",
+            "foreground": "#fafafa",
+            "background": "#2f3542",
+            "properties": {
+              "prefix": "<#f2f200> \ue5ff </>",
+              "style": "agnoster_short",
+              "enable_hyperlink": true,
+              "home_icon": "\uf015"
+            }
+          },
+          {
+            "type": "git",
+            "style": "diamond",
+            "foreground": "#ffeb3b",
+            "background": "#2f3542",
+            "properties": {
+              "display_stash_count": true,
+              "display_upstream_icon": true,
+              "display_status": true,
+              "status_colors_enabled": true,
+              "color_background": false,
+              "local_changes_color": "#ffeb3b",
+              "working_color": "#E84855",
+              "staging_color": "#2FDA4E",
+              "ahead_color": "#2EC4B6",
+              "behind_color": "#8A4FFF",
+              "prefix": "<#7a7a7a>\ue0b1 </>"
+            }
+          },
+          {
+            "type": "text",
+            "style": "diamond",
+            "trailing_diamond": "\ue0b0",
+            "foreground": "#fafafa",
+            "background": "#2f3542",
+            "properties": {
+              "text": "",
+              "postfix": "",
+              "prefix": ""
+            }
+          }
+        ]
+      },
+      {
+        "type": "prompt",
+        "alignment": "right",
+        "segments": [
+          {
+            "type": "text",
+            "style": "diamond",
+            "foreground": "#fafafa",
+            "background": "#2f3542",
+            "leading_diamond": "\ue0b2",
+            "properties": {
+              "text": "",
+              "prefix": "",
+              "postfix": ""
+            }
+          },
+          {
+            "type": "az",
+            "style": "diamond",
+            "foreground": "#fafafa",
+            "background": "#2f3542",
+            "properties": {
+              "display_id": false,
+              "display_name": true,
+              "prefix": "<#0078d4> \uFD03 </>",
+              "postfix": "<#7a7a7a> \ue0b3</>"
+            }
+          },
+          {
+            "type": "kubectl",
+            "style": "diamond",
+            "foreground": "#fafafa",
+            "background": "#2f3542",
+            "properties": {
+              "prefix": "<#3371e3> \uFD31 </>",
+              "postfix": "<#7a7a7a> \ue0b3</>"
+            }
+          },
+          {
+            "type": "node",
+            "style": "diamond",
+            "foreground": "#6CA35E",
+            "background": "#2f3542",
+            "properties": {
+              "prefix": " \uE718 ",
+              "postfix": "<#7a7a7a> \ue0b3</>"
+            }
+          },
+          {
+            "type": "python",
+            "style": "diamond",
+            "foreground": "#96E072",
+            "background": "#2f3542",
+            "properties": {
+              "prefix": " \uE235 ",
+              "postfix": "<#7a7a7a> \ue0b3</>"
+            }
+          },
+          {
+            "type": "dotnet",
+            "style": "diamond",
+            "foreground": "#3891A6",
+            "background": "#2f3542",
+            "properties": {
+              "prefix": " \uE77F ",
+              "postfix": "<#7a7a7a> \ue0b3</>"
+            }
+          },
+          {
+            "type": "time",
+            "style": "diamond",
+            "foreground": "#fafafa",
+            "background": "#2f3542",
+            "properties": {
+              "time_format": "15:04:05",
+              "postfix": "<#007ACC> \uf64f </>"
+            }
+          }
+        ]
+      },
+      {
+        "type": "newline"
+      },
+      {
+        "type": "prompt",
+        "alignment": "left",
+        "segments": [
+          {
+            "type": "text",
+            "style": "plain",
+            "foreground": "#7a7a7a",
+            "properties": {
+              "text": "\u276F"
+            }
+          }
+        ]
+      }
+    ]
+  }
