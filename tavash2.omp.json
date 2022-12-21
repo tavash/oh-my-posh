@@ -1,8 +1,7 @@
 {
-  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh3/main/themes/schema.json",
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "version": 2,
   "final_space": true,
-  "console_title": true,
-  "console_title_style": "template",
   "console_title_template": "{{if .Root}}root :: {{end}}{{.Shell}} :: {{.Folder}}",
   "blocks": [
     {
@@ -13,150 +12,125 @@
           "type": "root",
           "style": "diamond",
           "foreground": "#ffff66",
+          "template": " \uf0e7<#7a7a7a> \ue0b1</>",
           "properties": {
-            "root_icon": "\uF0E7",
-            "postfix": "<#7a7a7a> \ue0b1</>"
+            "root_icon": "\uf0e7"
           }
         },
         {
           "type": "path",
           "style": "diamond",
           "foreground": "#fafafa",
+          "template": "<#f2f200> \ufc6e </>{{ .Path }} ",
           "properties": {
-            "prefix": "<#f2f200> \ufc6e </>",
-            "style": "agnoster_short",
-            "enable_hyperlink": true,
-            "home_icon": "\uf46d"
+            "home_icon": "\uf46d",
+            "style": "agnoster_short"
           }
         },
         {
           "type": "git",
           "style": "diamond",
           "foreground": "#ffeb3b",
+          "foreground_templates": [
+            "{{ if or (.Working.Changed) (.Staging.Changed) }}#ffeb3b{{ end }}",
+            "{{ if gt .Ahead 0 }}#8A4FFF{{ end }}",
+            "{{ if gt .Behind 0 }}#2EC4B6{{ end }}"
+          ],
+          "template": "<#7a7a7a>\ue0b1 </>{{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }} \uf044 <#E84855>{{ .Working.String }}</>{{ end }}{{ if and (.Staging.Changed) (.Working.Changed) }} |{{ end }}{{ if .Staging.Changed }} \uf046 <#2FDA4E>{{ .Staging.String }}</>{{ end }}{{ if gt .StashCount 0}} \uf692 {{ .StashCount }}{{ end }}{{ if gt .WorktreeCount 0}} \uf1bb {{ .WorktreeCount }}{{ end }} ",
           "properties": {
-            "display_stash_count": true,
-            "display_upstream_icon": true,
-            "display_status": true,
-            "status_colors_enabled": true,
-            "color_background": false,
-            "local_changes_color": "#ffeb3b",
-            "working_color": "#E84855",
-            "staging_color": "#2FDA4E",
-            "ahead_color": "#2EC4B6",
-            "behind_color": "#8A4FFF",
-            "prefix": "<#7a7a7a>\ue0b1 </>"
+            "fetch_stash_count": true,
+            "fetch_status": true,
+            "fetch_upstream_icon": true
           }
         },
         {
           "type": "text",
           "style": "diamond",
           "foreground": "#fafafa",
-          "trailing_diamond": "<#7a7a7a> \ue0b1</>",
-          "properties": {
-            "text": "",
-            "postfix": "",
-            "prefix": ""
-          }
+          "trailing_diamond": "<#7a7a7a> \ue0b1</>"
         }
       ]
     },
     {
       "type": "prompt",
       "alignment": "right",
-      "segments": [ 
+      "segments": [
         {
           "type": "text",
           "style": "diamond",
           "foreground": "#fafafa",
-          "leading_diamond": "<#7a7a7a> \ue0b3</>",
-          "properties": {
-            "text": "",
-            "prefix": "",
-            "postfix": ""
-          }
-        },        
+          "leading_diamond": "<#7a7a7a> \ue0b3</>"
+        },
         {
           "type": "command",
           "style": "plain",
           "foreground": "#fafafa",
+          "template": " {{ .Output }}<#7a7a7a> \ue0b3</>",
           "properties": {
-            "shell": "bash",
-            "command": "[[ ! -z $(ifconfig | grep '10.10.*') ]] && echo -e '\\e[1;32m\uf700 \\e[38;2;250;250;250;250mVPN' || echo -e '\\e[1;31m\uf701 \\e[38;2;250;250;250;250mVPN'",
-            "postfix": "<#7a7a7a> \ue0b3</>"
+            "command": "[[ ! -z $(ifconfig | grep '10.11.*') ]] && echo -e '\\e[1;32m\uf700 \\e[38;2;250;250;250;250mVPN' || echo -e '\\e[1;31m\uf701 \\e[38;2;250;250;250;250mVPN'",
+            "shell": "bash"
           }
         },
         {
           "type": "az",
           "style": "diamond",
           "foreground": "#fafafa",
+          "template": "<#0078d4> \ufd03 </>{{ .Name }}<#7a7a7a> \ue0b3</>",
           "properties": {
             "display_id": false,
-            "display_name": true,
-            "prefix": "<#0078d4> \uFD03 </>",
-            "postfix": "<#7a7a7a> \ue0b3</>"
+            "display_name": true
           }
         },
         {
           "type": "kubectl",
           "style": "diamond",
           "foreground": "#fafafa",
-          "properties": {
-            "prefix": "<#3371e3> \uFD31 </>",
-            "postfix": "<#7a7a7a> \ue0b3</>"
-          }
+          "template": "<#3371e3> \ufd31 </>{{ .Context }}{{ if .Namespace }} :: {{ .Namespace }}{{ end }}<#7a7a7a> \ue0b3</>"
         },
         {
           "type": "node",
           "style": "diamond",
           "foreground": "#6CA35E",
-          "properties": {
-            "prefix": " \uE718 ",
-            "postfix": "<#7a7a7a> \ue0b3</>"
-          }
+          "template": " \ue718 {{ if .PackageManagerIcon }}{{ .PackageManagerIcon }} {{ end }}{{ .Full }}<#7a7a7a> \ue0b3</>"
         },
         {
           "type": "python",
           "style": "diamond",
           "foreground": "#96E072",
-          "properties": {
-            "prefix": " \uE235 ",
-            "postfix": "<#7a7a7a> \ue0b3</>"
-          }
+          "template": " \ue235 {{ if .Error }}{{ .Error }}{{ else }}{{ if .Venv }}{{ .Venv }} {{ end }}{{ .Full }}{{ end }}<#7a7a7a> \ue0b3</>"
         },
         {
           "type": "dotnet",
           "style": "diamond",
           "foreground": "#3891A6",
-          "properties": {
-            "prefix": " \uE77F ",
-            "postfix": "<#7a7a7a> \ue0b3</>"
-          }
+          "template": " \ue77f {{ if .Unsupported }}\uf071{{ else }}{{ .Full }}{{ end }}<#7a7a7a> \ue0b3</>"
         },
         {
           "type": "time",
           "style": "diamond",
           "foreground": "#fafafa",
+          "template": " {{ .CurrentDate | date .Format }}<#007ACC> \uf64f </>",
           "properties": {
-            "time_format": "15:04:05",
-            "postfix": "<#007ACC> \uf64f </>"
+            "time_format": "15:04:05"
           }
         }
       ]
     },
     {
-      "type": "newline"
-    },
-    {
       "type": "prompt",
       "alignment": "left",
+      "newline": true,
       "segments": [
         {
-          "type": "text",
+          "background": "transparent",
+          "foreground_templates": ["{{if gt .Code 0}}#ff3030{{end}}"],
+          "properties": {
+            "always_enabled": true
+          },
+          "type": "exit",
           "style": "plain",
           "foreground": "#7a7a7a",
-          "properties": {
-            "text": "\u276F"
-          }
+          "template": " \u276f "
         }
       ]
     }
